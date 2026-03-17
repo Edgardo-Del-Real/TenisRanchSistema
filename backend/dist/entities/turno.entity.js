@@ -41,11 +41,11 @@ __decorate([
     __metadata("design:type", cancha_entity_1.Cancha)
 ], Turno.prototype, "cancha", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'fecha_inicio', type: 'datetime2' }),
+    (0, typeorm_1.Column)({ name: 'fecha_inicio', type: 'timestamptz' }),
     __metadata("design:type", Date)
 ], Turno.prototype, "fecha_inicio", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'fecha_fin', type: 'datetime2' }),
+    (0, typeorm_1.Column)({ name: 'fecha_fin', type: 'timestamptz' }),
     __metadata("design:type", Date)
 ], Turno.prototype, "fecha_fin", void 0);
 __decorate([
@@ -65,7 +65,7 @@ __decorate([
     __metadata("design:type", String)
 ], Turno.prototype, "estado", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'cancelado_en', type: 'datetime2', nullable: true }),
+    (0, typeorm_1.Column)({ name: 'cancelado_en', type: 'timestamptz', nullable: true }),
     __metadata("design:type", Date)
 ], Turno.prototype, "cancelado_en", void 0);
 __decorate([

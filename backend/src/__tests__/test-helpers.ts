@@ -12,9 +12,6 @@ export async function cleanupTestUsers(usuarioRepository: Repository<Usuario>): 
   try {
     // Use a transaction to ensure all deletions are atomic
     await dataSource.transaction(async (manager) => {
-      // Disable foreign key checks temporarily for SQL Server
-      await manager.query('SET FOREIGN_KEY_CHECKS = 0');
-      
       // Delete in order to respect foreign key constraints
       
       // 1. Delete pagos_cuota (references cuotas)
@@ -63,12 +60,9 @@ export async function cleanupTestUsers(usuarioRepository: Repository<Usuario>): 
       // 8. Finally delete usuarios
       await manager.query(`DELETE FROM usuarios WHERE email LIKE 'test-%@example.com'`);
       
-      // Re-enable foreign key checks
-      await manager.query('SET FOREIGN_KEY_CHECKS = 1');
     });
   } catch (error) {
-    // For SQL Server, the SET FOREIGN_KEY_CHECKS command doesn't exist
-    // Let's try a different approach - delete in the correct order without disabling constraints
+    // Fallback: retry cleanup by resolving IDs first in case constraints block deletes
     try {
       await dataSource.transaction(async (manager) => {
         // Get all test user IDs first

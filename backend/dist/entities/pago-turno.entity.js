@@ -38,7 +38,7 @@ __decorate([
     __metadata("design:type", String)
 ], PagoTurno.prototype, "metodo_pago", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'fecha_pago', type: 'datetime2' }),
+    (0, typeorm_1.Column)({ name: 'fecha_pago', type: 'timestamptz' }),
     __metadata("design:type", Date)
 ], PagoTurno.prototype, "fecha_pago", void 0);
 __decorate([

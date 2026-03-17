@@ -18,7 +18,10 @@ import { SeedModule } from './seed/seed.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+      envFilePath:
+        process.env.NODE_ENV === 'test' || process.env.JEST_WORKER_ID
+          ? '.env.test'
+          : '.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

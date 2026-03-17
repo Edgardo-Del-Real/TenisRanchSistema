@@ -26,7 +26,7 @@ export class PagoTurno {
   @Column({ name: 'metodo_pago', length: 50 })
   metodo_pago: string;
 
-  @Column({ name: 'fecha_pago', type: 'datetime2' })
+  @Column({ name: 'fecha_pago', type: 'timestamptz' })
   fecha_pago: Date;
 
   @Column({ name: 'registrado_por' })

@@ -14,12 +14,12 @@ import {
 } from '../entities';
 
 export const getDatabaseConfig = (configService: ConfigService): TypeOrmModuleOptions => ({
-  type: 'mssql',
-  host: configService.get<string>('DB_HOST', 'localhost'),
-  port: parseInt(configService.get<string>('DB_PORT', '1433'), 10),
-  username: configService.get<string>('DB_USER', 'sa'),
-  password: configService.get<string>('DB_PASSWORD', ''),
-  database: configService.get<string>('DB_NAME', 'club_tenis'),
+  type: 'postgres',
+  url: configService.get<string>('DATABASE_URL'),
+  ssl:
+    configService.get<string>('NODE_ENV') === 'production'
+      ? { rejectUnauthorized: false }
+      : false,
   entities: [
     Usuario,
     Cancha,
@@ -34,8 +34,4 @@ export const getDatabaseConfig = (configService: ConfigService): TypeOrmModuleOp
   ],
   synchronize: configService.get<string>('NODE_ENV') !== 'production',
   logging: configService.get<string>('NODE_ENV') === 'development',
-  options: {
-    encrypt: false,
-    trustServerCertificate: true,
-  },
 });

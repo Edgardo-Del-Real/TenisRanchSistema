@@ -20,7 +20,7 @@ export class Tarifa {
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   valor: number;
 
-  @Column({ name: 'vigente_desde', type: 'datetime2' })
+  @Column({ name: 'vigente_desde', type: 'timestamptz' })
   vigente_desde: Date;
 
   @Column({ name: 'modificado_por', nullable: true })

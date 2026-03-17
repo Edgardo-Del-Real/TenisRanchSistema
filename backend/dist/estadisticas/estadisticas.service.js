@@ -84,7 +84,7 @@ let EstadisticasService = class EstadisticasService {
         });
         const horasPicoRaw = await this.turnoRepository
             .createQueryBuilder('turno')
-            .select('DATEPART(HOUR, turno.fecha_inicio)', 'hora')
+            .select('EXTRACT(HOUR FROM turno.fecha_inicio)', 'hora')
             .addSelect('COUNT(turno.id)', 'cantidad')
             .where('turno.estado = :estado', { estado: estado_turno_enum_1.EstadoTurno.ACTIVO })
             .andWhere(filtros.fechaInicio && filtros.fechaFin
@@ -97,7 +97,7 @@ let EstadisticasService = class EstadisticasService {
             fechaInicio: filtros.fechaInicio,
             fechaFin: filtros.fechaFin,
         })
-            .groupBy('DATEPART(HOUR, turno.fecha_inicio)')
+            .groupBy('EXTRACT(HOUR FROM turno.fecha_inicio)')
             .orderBy('COUNT(turno.id)', 'DESC')
             .getRawMany();
         const horasPico = horasPicoRaw.sort((a, b) => {

@@ -31,10 +31,10 @@ export class Turno {
   @JoinColumn({ name: 'cancha_id' })
   cancha: Cancha;
 
-  @Column({ name: 'fecha_inicio', type: 'datetime2' })
+  @Column({ name: 'fecha_inicio', type: 'timestamptz' })
   fecha_inicio: Date;
 
-  @Column({ name: 'fecha_fin', type: 'datetime2' })
+  @Column({ name: 'fecha_fin', type: 'timestamptz' })
   fecha_fin: Date;
 
   @Column({ name: 'requiere_luz', default: false })
@@ -49,7 +49,7 @@ export class Turno {
   @Column({ type: 'varchar', length: 50, default: EstadoTurno.ACTIVO })
   estado: EstadoTurno;
 
-  @Column({ name: 'cancelado_en', type: 'datetime2', nullable: true })
+  @Column({ name: 'cancelado_en', type: 'timestamptz', nullable: true })
   cancelado_en: Date;
 
   @Column({ name: 'cancelado_por', nullable: true })

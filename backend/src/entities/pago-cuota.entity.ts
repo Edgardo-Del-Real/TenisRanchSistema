@@ -24,7 +24,7 @@ export class PagoCuota {
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   monto: number;
 
-  @Column({ name: 'fecha_pago', type: 'datetime2' })
+  @Column({ name: 'fecha_pago', type: 'timestamptz' })
   fecha_pago: Date;
 
   @Column({ name: 'registrado_por' })

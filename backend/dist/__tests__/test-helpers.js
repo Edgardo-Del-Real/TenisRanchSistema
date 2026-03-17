@@ -6,7 +6,6 @@ async function cleanupTestUsers(usuarioRepository) {
     const dataSource = usuarioRepository.manager.connection;
     try {
         await dataSource.transaction(async (manager) => {
-            await manager.query('SET FOREIGN_KEY_CHECKS = 0');
             await manager.query(`DELETE FROM pagos_cuota WHERE cuota_id IN (
         SELECT id FROM cuotas WHERE socio_id IN (
           SELECT id FROM usuarios WHERE email LIKE 'test-%@example.com'
@@ -37,7 +36,6 @@ async function cleanupTestUsers(usuarioRepository) {
         SELECT id FROM usuarios WHERE email LIKE 'test-%@example.com'
       )`);
             await manager.query(`DELETE FROM usuarios WHERE email LIKE 'test-%@example.com'`);
-            await manager.query('SET FOREIGN_KEY_CHECKS = 1');
         });
     }
     catch (error) {

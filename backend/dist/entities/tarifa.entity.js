@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Tarifa.prototype, "valor", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'vigente_desde', type: 'datetime2' }),
+    (0, typeorm_1.Column)({ name: 'vigente_desde', type: 'timestamptz' }),
     __metadata("design:type", Date)
 ], Tarifa.prototype, "vigente_desde", void 0);
 __decorate([

@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:type", Number)
 ], PagoCuota.prototype, "monto", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'fecha_pago', type: 'datetime2' }),
+    (0, typeorm_1.Column)({ name: 'fecha_pago', type: 'timestamptz' }),
     __metadata("design:type", Date)
 ], PagoCuota.prototype, "fecha_pago", void 0);
 __decorate([
