@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PagoTurno = exports.PagoLuz = exports.ConfiguracionClub = exports.Tarifa = exports.PagoCuota = exports.Cuota = exports.Turno = exports.HistorialCancha = exports.Cancha = exports.Usuario = void 0;
+var usuario_entity_1 = require("./usuario.entity");
+Object.defineProperty(exports, "Usuario", { enumerable: true, get: function () { return usuario_entity_1.Usuario; } });
+var cancha_entity_1 = require("./cancha.entity");
+Object.defineProperty(exports, "Cancha", { enumerable: true, get: function () { return cancha_entity_1.Cancha; } });
+var historial_cancha_entity_1 = require("./historial-cancha.entity");
+Object.defineProperty(exports, "HistorialCancha", { enumerable: true, get: function () { return historial_cancha_entity_1.HistorialCancha; } });
+var turno_entity_1 = require("./turno.entity");
+Object.defineProperty(exports, "Turno", { enumerable: true, get: function () { return turno_entity_1.Turno; } });
+var cuota_entity_1 = require("./cuota.entity");
+Object.defineProperty(exports, "Cuota", { enumerable: true, get: function () { return cuota_entity_1.Cuota; } });
+var pago_cuota_entity_1 = require("./pago-cuota.entity");
+Object.defineProperty(exports, "PagoCuota", { enumerable: true, get: function () { return pago_cuota_entity_1.PagoCuota; } });
+var tarifa_entity_1 = require("./tarifa.entity");
+Object.defineProperty(exports, "Tarifa", { enumerable: true, get: function () { return tarifa_entity_1.Tarifa; } });
+var configuracion_club_entity_1 = require("./configuracion-club.entity");
+Object.defineProperty(exports, "ConfiguracionClub", { enumerable: true, get: function () { return configuracion_club_entity_1.ConfiguracionClub; } });
+var pago_luz_entity_1 = require("./pago-luz.entity");
+Object.defineProperty(exports, "PagoLuz", { enumerable: true, get: function () { return pago_luz_entity_1.PagoLuz; } });
+var pago_turno_entity_1 = require("./pago-turno.entity");
+Object.defineProperty(exports, "PagoTurno", { enumerable: true, get: function () { return pago_turno_entity_1.PagoTurno; } });
+//# sourceMappingURL=index.js.map
