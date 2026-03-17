@@ -24,6 +24,7 @@ async function bootstrap() {
     credentials: true,
   });
 
+  // xd
   // Ejecutar seeding de datos iniciales
   if (process.env.NODE_ENV !== 'test') {
     const seedService = app.get(SeedService);
