@@ -4,7 +4,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { AppModule } from '../../app.module';
 import { Usuario } from '../../entities/usuario.entity';
 import { Cancha } from '../../entities/cancha.entity';
@@ -280,3 +280,4 @@ describe('Feature: gestion-club-tenis, Propiedad 19: Límite diario de turnos po
     120000,
   );
 });
+

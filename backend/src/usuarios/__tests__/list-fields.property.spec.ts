@@ -4,7 +4,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { AppModule } from '../../app.module';
 import { Usuario } from '../../entities/usuario.entity';
 import { Rol } from '../../common/enums/rol.enum';
@@ -155,3 +155,4 @@ describe('Feature: gestion-club-tenis, Propiedad 13: Listados incluyen todos los
     120000,
   );
 });
+

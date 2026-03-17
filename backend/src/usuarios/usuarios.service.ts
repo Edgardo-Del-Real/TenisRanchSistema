@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Like } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { Usuario } from '../entities/usuario.entity';
 import { Rol } from '../common/enums/rol.enum';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
@@ -158,3 +158,4 @@ export class UsuariosService {
     return rest as Omit<Usuario, 'password_hash'>;
   }
 }
+

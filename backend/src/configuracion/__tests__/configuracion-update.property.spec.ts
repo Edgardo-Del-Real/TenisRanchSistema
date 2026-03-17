@@ -4,7 +4,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { AppModule } from '../../app.module';
 import { Usuario } from '../../entities/usuario.entity';
 import { ConfiguracionClub } from '../../entities/configuracion-club.entity';
@@ -339,3 +339,4 @@ describe('Feature: gestion-club-tenis, Propiedad 28: Configuración del club se 
     120000,
   );
 });
+

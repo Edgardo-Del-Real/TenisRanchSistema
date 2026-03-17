@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as fc from 'fast-check';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { CuotasService } from '../cuotas.service';
 import { Cuota } from '../../entities/cuota.entity';
 import { PagoCuota } from '../../entities/pago-cuota.entity';
