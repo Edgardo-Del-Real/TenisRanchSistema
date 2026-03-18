@@ -20,7 +20,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async register(dto: RegisterDto): Promise<Omit<Usuario, 'password_hash'>> {
+  async register(dto: RegisterDto): Promise<{ access_token: string; user: Omit<Usuario, 'password_hash'> }> {
     const existing = await this.usuarioRepository.findOne({
       where: { email: dto.email },
     });
@@ -49,10 +49,18 @@ export class AuthService {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password_hash: _, ...result } = saved;
-    return result;
+    const payload = {
+      sub: result.id,
+      email: result.email,
+      rol: result.rol,
+    };
+
+    const access_token = this.jwtService.sign(payload);
+
+    return { access_token, user: result };
   }
 
-  async login(dto: LoginDto): Promise<{ access_token: string }> {
+  async login(dto: LoginDto): Promise<{ access_token: string; user: Omit<Usuario, 'password_hash'> }> {
     const usuario = await this.usuarioRepository.findOne({
       where: { email: dto.email },
     });
@@ -89,7 +97,9 @@ export class AuthService {
 
     const access_token = this.jwtService.sign(payload);
 
-    return { access_token };
+    const { password_hash, ...user } = usuario;
+
+    return { access_token, user };
   }
 }
 
